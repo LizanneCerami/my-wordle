@@ -38,14 +38,14 @@ function App() {
     
     
     const onEnter = () => {
-      if(currentAttempt.letter !== 5) return;
+      if(currentAttempt.letterPos !== 5) return;
       
       let currentWord = " ";
       for (let i= 0; i < 5; i++) {
         currentWord += board[currentAttempt.attempt][i];
       }
       if (wordSet.has(currentWord.toLowerCase)) {
-        setCurrentAttempt({attempt: currentAttempt.attempt + 1, letter: 0})
+        setCurrentAttempt({attempt: currentAttempt.attempt + 1, letterPos: 0})
       } else {
         alert( "Word not found" )
       }
