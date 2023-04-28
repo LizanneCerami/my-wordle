@@ -1,8 +1,8 @@
-import React from 'react'
+
 import { useContext } from 'react'
 import { AppContext } from '../App'
 
-export default function Key({keyVal, bigKey}) {
+export default function Key({keyVal, bigKey, disabled }) {
 
   const { onDelete, onEnter, onSelectLetter } = useContext(AppContext)
 
@@ -17,7 +17,7 @@ export default function Key({keyVal, bigKey}) {
   }
   return (
     <div className='key' 
-      id={bigKey && "big"} 
+      id={bigKey ? "big" : disabled && "disabled"} 
       onClick={selectLetter}>
       {keyVal}
     </div>
