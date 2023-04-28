@@ -8,10 +8,12 @@ import './App.css';
 export const AppContext = createContext();
 
 function App() {
-  const [board, setBoard] = useState(boardDefault);
-  const [currentAttempt, setCurrentAttempt] = useState({attempt: 0, letterPos: 0})
+  const [ board, setBoard ] = useState(boardDefault);
+  const [ currentAttempt, setCurrentAttempt ] = useState({attempt: 0, letterPos: 0})
   const [ wordSet, setWordSet ] = useState()
   const [ disabledLetters, setDisabledLetters ] = useState([])
+  const [ correctLetters, setCorrectLetters ] = useState([])
+  const [ almostLetters, setAlmostLetters ] = useState([])
   const [ correctWord, setCorrectWord ] = useState("")
   const [ gameOver, setGameOver ] = useState({
     gameOver: false, 
@@ -85,6 +87,10 @@ function App() {
           setDisabledLetters,
           setGameOver,
           gameOver,
+          setCorrectLetters,
+          correctLetters,
+          setAlmostLetters,
+          almostLetters,
         }}>
 
         <div className="game">
