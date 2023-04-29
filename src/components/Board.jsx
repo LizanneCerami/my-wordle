@@ -1,6 +1,5 @@
 import { useContext } from 'react'
 import { AppContext } from '../App';
-import React from 'react'
 import Letter from './Letter';
 
 export default function Board() {

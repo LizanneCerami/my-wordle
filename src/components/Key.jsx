@@ -4,9 +4,10 @@ import { AppContext } from '../App'
 
 export default function Key({keyVal, bigKey, disabled, almost, correct }) {
 
-  const { onDelete, onEnter, onSelectLetter } = useContext(AppContext)
+  const { onDelete, onEnter, onSelectLetter, gameOver } = useContext(AppContext)
 
   const selectLetter = () => {
+    if (gameOver.gameOver) return;
     if(keyVal === "ENTER"){
       onEnter()
     } else if(keyVal === "DELETE") {
@@ -17,8 +18,8 @@ export default function Key({keyVal, bigKey, disabled, almost, correct }) {
   }
   return (
     <div className={'key ' + (bigKey ? 'big ' : '') + (almost ? 'almost ' : '') + (correct ? 'correct ' : '') + ((disabled) ? "disabled" : '')} 
-      onClick={selectLetter}>
-      {keyVal}
+        onClick={selectLetter}>
+        {keyVal}
     </div>
   )
 }
